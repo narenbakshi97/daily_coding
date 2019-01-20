@@ -8,7 +8,7 @@ function preload(){
 }
 
 function setup(){
-    createCanvas(400,400);
+    createCanvas(700,630);
     button = select("#submit");
     input = select("#city");
 
@@ -28,7 +28,7 @@ function draw(){
   if(Weatherdata){
     var temp = Weatherdata.main.temp;
     var humid = Weatherdata.main.humidity;
-    ellipse(100,100,temp,temp);
-    ellipse(300,100,humid,humid)
+    ellipse(250,300,temp,temp);
+    ellipse(500,300,humid,humid)
   }
 }
