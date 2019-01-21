@@ -3,21 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Pokemon Game</title>
-    <style>
-      #screen{
-        display:none;
-        text-align: center;
-        border:black double 5px;
-      }
-      #screen ul{
-        text-align: left;
-        margin-top:-10%;
-      }
-      #choice{
-        text-align:center;
-        color:;
-      }
-    </style>
+    <link rel="stylesheet" href="master.css">
   </head>
   <body>
     <h1>The Pokemon Fighting Simulator</h1>
@@ -39,14 +25,18 @@
       </div>
       <div id="enemy">
         <p style="float:left" id="wild_appearance"></p>
-        <img id="enemy_image" src="" alt="" style="height:100px;">
+        <img id="enemy_image" src="" alt="">
+        <span id="enemy_health"></span>
+        <span id="enemy_blood"></span>
         <div id="enemy_attacks">
 
         </div>
       </div>
       <div id="user">
         <p style="float:left" id="self_appearance"></p>
-        <img id="self_image" src="" alt="" style="height:100px">
+        <img id="self_image" src="" alt="">
+        <span id="self_health"></span>
+        <span id="self_blood"></span>
         <div id="self_attacks">
 
         </div>
@@ -55,50 +45,5 @@
     </div>
   </body>
   <script src="pokemon.js"></script>
-  <script type="text/javascript">
-    var my_pokemon = 0;
-
-    function start_game(){
-      var choice = "";
-      if(document.getElementById("c1").checked){
-        choice = "Bulbasaur";
-        my_pokemon = 1;
-      }
-      else if(document.getElementById("c2").checked){
-        choice = "Charmander";
-        my_pokemon = 4;
-      }
-      else if(document.getElementById("c3").checked){
-        choice = "Squartle";
-        my_pokemon = 7;
-      }
-      //alert("You have choosen "+ choice);
-      document.getElementById("choice").style.display = "none";
-      document.getElementById("screen").style.display = "block";
-
-    }
-    function run(){
-      var random = Math.floor(Math.random() * 9) + 1;
-      console.log(random);
-      console.log(pokemon[random-1]);
-
-      // wild pokemon
-      document.getElementById("wild_appearance").innerHTML = "Look! A wild " + pokemon[random-1].name + " has appeared!";
-      document.getElementById("enemy_image").src = "pokemon/front/"+random+".png";
-
-      var atcks_enmy = "";
-      for(i = 0; i < pokemon[random-1].moves.length; i ++){
-        atcks_enmy += "<li>"+pokemon[random-1].moves[i].name+"</li>";
-      }
-      document.getElementById("enemy_attacks").innerHTML = "<br><br><ul>"+atcks_enmy+"</ul>";
-
-      // user part
-      document.getElementById("self_appearance").innerHTML = "<b>"+pokemon[my_pokemon-1].name+"</b>";
-      document.getElementById("self_image").src = "pokemon/back/"+my_pokemon+".png";
-      var self_atcks = "<form>";
-      for(i = 0; i < pokemon[my_pokemon - 1].moves.length; i++){
-        self_atcks += "<input type = 'radio' name = 'atk' value = '"+pokemon[my_pokemon-1].moves[i].+"'";
-      }
-    }
-  </script>
+  <script src="game.js"></script>
 </html>

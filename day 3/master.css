@@ -1,0 +1,20 @@
+#screen{
+  display:none;
+  text-align: center;
+  border:black double 5px;
+}
+#screen ul{
+  text-align: left;
+  margin-top:-5%;
+}
+#user form{
+  text-align:left;
+  margin-top:-1%;
+}
+#choice{
+  text-align:center;
+  color:;
+}
+img{
+  height:100px;
+}
