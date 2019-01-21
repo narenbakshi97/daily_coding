@@ -2,7 +2,7 @@ var mapImage;
 var zoom = 1;
 var clat = 0;
 var clon = 0;
-
+var colors = [[0,0,128],[0,0,255],[0,255,0],[0,255,255],[128,0,128],[255,105,180],[255,255,0],[255,0,0]];
 // 31.2304° N, 121.4737° E
 // 49.2827° N, 123.1207° W
 var lat = 49.2827;
@@ -38,7 +38,7 @@ function setup(){
 
   for(var  i = 0; i < earthquakes.length; i++){
     var data = earthquakes[i].split(/,/);
-    console.log(data);
+    //console.log(data);
 
     var lat = data[1];
     var lon = data[2];
@@ -56,8 +56,9 @@ function setup(){
     var magmax = sqrt(pow(10,10));
 
     var d = map(mag, 0 ,magmax, 5, 100);
+    console.log(d);
     stroke(255, 0, 255);
-    fill(255, 0, 255, 200);
+    fill(colors[i % colors.length]);
     ellipse(x, y, d, d);
   }
 }
