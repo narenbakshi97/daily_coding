@@ -29,7 +29,12 @@ function run(){
 
   // wild pokemon
   document.getElementById("wild_appearance").innerHTML = "Look! A wild " + pokemon[random-1].name + " has appeared!";
-  document.getElementById("enemy_image").src = "pokemon/front/"+random+".png";
+  // padding  0 to fetch the image
+  var enemy_image_str = ""+random;
+  while(enemy_image_str.length < 3){
+    enemy_image_str = ("0"+enemy_image_str);
+  }
+  document.getElementById("enemy_image").src = "pokemon/front/"+enemy_image_str+".gif";
   // the hpof the enemy Pokemon will be between 10 and 100 in pultiple of 10
   var enemy_hp = (Math.floor(Math.random() * 10 ) + 1 ) * 10;
   document.getElementById("enemy_health").innerHTML = "<strong>HP:"+ enemy_hp + "</strong>";
@@ -42,7 +47,12 @@ function run(){
 
   // user part
   document.getElementById("self_appearance").innerHTML = "<b>"+pokemon[my_pokemon-1].name+"</b>";
-  document.getElementById("self_image").src = "pokemon/back/"+my_pokemon+".png";
+  // padding  0 to fetch the image
+  var self_image_str = ""+my_pokemon;
+  while(self_image_str.length < 3){
+    self_image_str = ("0"+self_image_str);
+  }
+  document.getElementById("self_image").src = "pokemon/back/"+self_image_str+".gif";
   var self_atcks = "<form>";
   for(i = 0; i < pokemon[my_pokemon - 1].moves.length; i++){
     self_atcks += ("<input type = 'radio' id= 'a"+i+"' name = 'atk' value = '"+pokemon[my_pokemon-1].moves[i].name+"'>"+pokemon[my_pokemon-1].moves[i].name+"</br>");
