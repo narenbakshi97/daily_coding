@@ -33,9 +33,25 @@ img{
   border:5px double black;
   float:right;
   padding:5px;
+  overflow: auto;
+  white-space: nowrap;
+  max-width:500px;
 }
 #myBag{
     border:5px double black;
     float:left;
     padding:5px;
+}
+#shop{
+  border:5px double black;
+  float:left;
+  padding:15px ;
+}
+ol li{
+  display:inline;
+}
+ol li img{
+  border:2px solid;
+  padding:15px;
+  margin:5px 10px;
 }

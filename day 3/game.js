@@ -2,6 +2,7 @@
 var request = new XMLHttpRequest();
 var intro_music;
 var battleSound;
+var myMoney = 50;
 function intro(){
   document.getElementById("daily").pause();
 
@@ -16,9 +17,16 @@ var my_pokemon_hp = 50;
 // flag variable to determine whose turn is this?
 var turn = "user";
 
+function resume_game(){
+  battleSound.pause();
+  document.getElementById("enemy").style.display = "none";
+  document.getElementById("daily").play();
+}
+
 function start_game(){
   document.getElementById("myMoney").innerHTML = "Money: "+myMoney;
   showBag();
+  document.getElementById("shop").innerHTML = "<h3>Shop</h3><form><div><label for='pokeball-number'></label><input type='number' id='pokeball-number'/></div><div>1 pokeball = 50 Bucks</div><div><input type='button' onclick='shopPokeball()' value='shop'/></div></form>";
   document.getElementById("daily").play();
   intro_music.pause();
   var choice = "";
@@ -66,8 +74,9 @@ function start_game(){
   document.getElementById("screen").style.display = "block";
 
 }
-
+var data;
 function run(){
+  data = null;
   battleSound.pause();
   battleSound.currentTime = 0;
   document.getElementById("daily").pause();
@@ -81,25 +90,29 @@ function run(){
   // wild pokemon
   // accessing that pokemon through API
   // Open a new connection, using the GET request on the URL endpoint
-var data;
+
 request.open('GET', 'https://pokeapi.co/api/v2/pokemon/'+random+'/', true);
 request.onload = function () {
   data = JSON.parse(this.response);
-  statusUpdate("Look, a wild "+ data.name + " just appeared!");
-  document.getElementById("wild_appearance").innerHTML = "<h4>" + data.name + "</h4>";
-  // padding  0 to fetch the image
-  enemy_pokemon = data;
-  var enemy_image_str = ""+random;
-  while(enemy_image_str.length < 3){
-    enemy_image_str = ("0"+enemy_image_str);
+  if(data){
+    statusUpdate("Look, a wild "+ data.name + " has appeared!");
+    document.getElementById("wild_appearance").innerHTML = "<h4>" + data.name + "</h4>";
+    // padding  0 to fetch the image
+    enemy_pokemon = data;
+    var enemy_image_str = ""+random;
+    while(enemy_image_str.length < 3){
+      enemy_image_str = ("0"+enemy_image_str);
+    }
+    // loading sound of that wild pokemon
+    var enemy_snd_file = data.name[0].toUpperCase().concat(data.name.substring(1));
+    console.log(enemy_snd_file);
+    var snd = new Audio("sounds/"+enemy_image_str+" - "+enemy_snd_file+".wav");
+    snd.play();
+    // show
+    document.getElementById("enemy_image").src = "pokemon/front/"+enemy_image_str+".gif";
+    document.getElementById("enemy").style.display = "block";
+
   }
-  // loading sound of that wild pokemon
-  var enemy_snd_file = data.name[0].toUpperCase().concat(data.name.substring(1));
-  console.log(enemy_snd_file);
-  var snd = new Audio("sounds/"+enemy_image_str+" - "+enemy_snd_file+".wav");
-  snd.play();
-  // show
-  document.getElementById("enemy_image").src = "pokemon/front/"+enemy_image_str+".gif";
 }
 request.send();
 
