@@ -37,6 +37,9 @@ img{
   white-space: nowrap;
   max-width:500px;
 }
+#enemy_health, #enemy_lvl, #self_health, #self_level{
+  padding:0 20px;
+}
 #myBag{
     border:5px double black;
     float:left;

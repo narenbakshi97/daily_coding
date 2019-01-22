@@ -2,7 +2,10 @@
 var request = new XMLHttpRequest();
 var intro_music;
 var battleSound;
-var myMoney = 50;
+var myMoney = 100;
+var currentPokemonIndex = 0;
+var battle = false;
+var my_lvls = {max:5,min:5};
 function intro(){
   document.getElementById("daily").pause();
 
@@ -13,17 +16,19 @@ function intro(){
 
 var my_pokemon = 0;
 var enemy_pokemon;
-var my_pokemon_hp = 50;
+var enemy_hp;
 // flag variable to determine whose turn is this?
 var turn = "user";
 
 function resume_game(){
+  battle = false;
   battleSound.pause();
   document.getElementById("enemy").style.display = "none";
   document.getElementById("daily").play();
 }
 
 function start_game(){
+  battle = false;
   document.getElementById("myMoney").innerHTML = "Money: "+myMoney;
   showBag();
   document.getElementById("shop").innerHTML = "<h3>Shop</h3><form><div><label for='pokeball-number'></label><input type='number' id='pokeball-number'/></div><div>1 pokeball = 50 Bucks</div><div><input type='button' onclick='shopPokeball()' value='shop'/></div></form>";
@@ -47,6 +52,7 @@ function start_game(){
   request.open('GET', 'https://pokeapi.co/api/v2/pokemon/'+my_pokemon+'/', true);
   request.onload = function () {
     newEntry = JSON.parse(this.response);
+    newEntry.hp = 50;
     pokemons_caught.push(newEntry);
     showMyPokemons();
   }
@@ -74,8 +80,12 @@ function start_game(){
   document.getElementById("screen").style.display = "block";
 
 }
+
+
+// run
 var data;
 function run(){
+  battle = true;
   data = null;
   battleSound.pause();
   battleSound.currentTime = 0;
@@ -110,23 +120,23 @@ request.onload = function () {
     snd.play();
     // show
     document.getElementById("enemy_image").src = "pokemon/front/"+enemy_image_str+".gif";
-    document.getElementById("enemy").style.display = "block";
 
+    enemy_hp = (Math.floor(Math.random() * (my_lvls.max+4) ) + 1 ) * 10;
+    updatePokemonStats();
+
+  document.getElementById("enemy").style.display = "block";
   }
 }
 request.send();
 
 
-  // // the hpof the enemy Pokemon will be between 10 and 100 in pultiple of 10
-  // var enemy_hp = (Math.floor(Math.random() * 10 ) + 1 ) * 10;
-  // document.getElementById("enemy_health").innerHTML = "<strong>HP:"+ enemy_hp + "</strong>";
-  // document.getElementById("self_health").innerHTML = "<strong>HP:"+ my_pokemon_hp + "</strong>";
+  // the hpof the enemy Pokemon will be between 10 and 100 in pultiple of 10
   // var atcks_enmy = "";
   // for(i = 0; i < pokemon[random-1].moves.length; i ++){
   //   atcks_enmy += "<li>"+pokemon[random-1].moves[i].name+"</li>";
   // }
   // document.getElementById("enemy_attacks").innerHTML = "<br><br><ul>"+atcks_enmy+"</ul>";
-  //
+
 }
 
 function attack(){
@@ -147,4 +157,14 @@ function attack(){
 
 function statusUpdate(str){
   document.getElementById("status").innerHTML = str;
+}
+
+
+function updatePokemonStats(){
+  let enemy_lvl = enemy_hp / 10;
+  document.getElementById("enemy_health").innerHTML = "<strong>HP:"+ enemy_hp +"</strong>";
+  document.getElementById("self_health").innerHTML = "<strong>HP:"+ pokemons_caught[currentPokemonIndex].hp + "</strong>";
+
+  document.getElementById("enemy_level").innerHTML = "<strong>Health:"+ (enemy_lvl/enemy_lvl)*100 +"%</strong>";
+  document.getElementById("self_level").innerHTML = "<strong>Health:"+ (pokemons_caught[currentPokemonIndex].hp/10) / (pokemons_caught[currentPokemonIndex].hp/10) * 100 + "%</strong>";
 }
