@@ -23,42 +23,68 @@ function start_game(){
 
 }
 function run(){
-  var random = Math.floor(Math.random() * 9) + 1;
+  var random = Math.floor(Math.random() * 150) + 1;
   console.log(random);
-  console.log(pokemon[random-1]);
+//  console.log(pokemon[random-1]);
 
+
+  //**************************************************************************************************
   // wild pokemon
-  document.getElementById("wild_appearance").innerHTML = "Look! A wild " + pokemon[random-1].name + " has appeared!";
-  // padding  0 to fetch the image
-  var enemy_image_str = ""+random;
-  while(enemy_image_str.length < 3){
-    enemy_image_str = ("0"+enemy_image_str);
-  }
-  document.getElementById("enemy_image").src = "pokemon/front/"+enemy_image_str+".gif";
-  // the hpof the enemy Pokemon will be between 10 and 100 in pultiple of 10
-  var enemy_hp = (Math.floor(Math.random() * 10 ) + 1 ) * 10;
-  document.getElementById("enemy_health").innerHTML = "<strong>HP:"+ enemy_hp + "</strong>";
-  document.getElementById("self_health").innerHTML = "<strong>HP:"+ my_pokemon_hp + "</strong>";
-  var atcks_enmy = "";
-  for(i = 0; i < pokemon[random-1].moves.length; i ++){
-    atcks_enmy += "<li>"+pokemon[random-1].moves[i].name+"</li>";
-  }
-  document.getElementById("enemy_attacks").innerHTML = "<br><br><ul>"+atcks_enmy+"</ul>";
+  // accessing that pokemon through API
+  // Create a request variable and assign a new XMLHttpRequest object to it.
+  var request = new XMLHttpRequest();
 
-  // user part
-  document.getElementById("self_appearance").innerHTML = "<b>"+pokemon[my_pokemon-1].name+"</b>";
-  // padding  0 to fetch the image
-  var self_image_str = ""+my_pokemon;
-  while(self_image_str.length < 3){
-    self_image_str = ("0"+self_image_str);
-  }
-  document.getElementById("self_image").src = "pokemon/back/"+self_image_str+".gif";
-  var self_atcks = "<form>";
-  for(i = 0; i < pokemon[my_pokemon - 1].moves.length; i++){
-    self_atcks += ("<input type = 'radio' id= 'a"+i+"' name = 'atk' value = '"+pokemon[my_pokemon-1].moves[i].name+"'>"+pokemon[my_pokemon-1].moves[i].name+"</br>");
-  }
-  self_atcks += "<br><input type='button' value='FIGHT' onclick='attack()'/></form>";
-  document.getElementById("self_attacks").innerHTML = self_atcks;
+  // Open a new connection, using the GET request on the URL endpoint
+  request.open('GET', 'https://pokeapi.co/api/v2/pokemon/'+random+'/', true);
+
+  request.onload = function () {
+    // Begin accessing JSON data here
+      var data = JSON.parse(this.response);
+      console.log(data.forms[0].name);
+      document.getElementById("wild_appearance").innerHTML = "Look! A wild " + data.forms[0].name + " has appeared!";
+      // padding  0 to fetch the image
+      var enemy_image_str = ""+random;
+      while(enemy_image_str.length < 3){
+        enemy_image_str = ("0"+enemy_image_str);
+      }
+      // loading sound of that wild pokemon
+      var enemy_snd_file = data.forms[0].name[0].toUpperCase().concat(data.forms[0].name.substring(1));
+      console.log(enemy_snd_file);
+      var snd = new Audio("sounds/"+enemy_image_str+" - "+enemy_snd_file+".wav");
+      snd.play();
+      // show
+      document.getElementById("enemy_image").src = "pokemon/front/"+enemy_image_str+".gif";
+
+    }
+
+  // Send request
+  request.send();
+
+  // // the hpof the enemy Pokemon will be between 10 and 100 in pultiple of 10
+  // var enemy_hp = (Math.floor(Math.random() * 10 ) + 1 ) * 10;
+  // document.getElementById("enemy_health").innerHTML = "<strong>HP:"+ enemy_hp + "</strong>";
+  // document.getElementById("self_health").innerHTML = "<strong>HP:"+ my_pokemon_hp + "</strong>";
+  // var atcks_enmy = "";
+  // for(i = 0; i < pokemon[random-1].moves.length; i ++){
+  //   atcks_enmy += "<li>"+pokemon[random-1].moves[i].name+"</li>";
+  // }
+  // document.getElementById("enemy_attacks").innerHTML = "<br><br><ul>"+atcks_enmy+"</ul>";
+  //
+  // //*******************************************************************************************************
+  // // user part
+  // document.getElementById("self_appearance").innerHTML = "<b>"+pokemon[my_pokemon-1].name+"</b>";
+  // // padding  0 to fetch the image
+  // var self_image_str = ""+my_pokemon;
+  // while(self_image_str.length < 3){
+  //   self_image_str = ("0"+self_image_str);
+  // }
+  // document.getElementById("self_image").src = "pokemon/back/"+self_image_str+".gif";
+  // var self_atcks = "<form>";
+  // for(i = 0; i < pokemon[my_pokemon - 1].moves.length; i++){
+  //   self_atcks += ("<input type = 'radio' id= 'a"+i+"' name = 'atk' value = '"+pokemon[my_pokemon-1].moves[i].name+"'>"+pokemon[my_pokemon-1].moves[i].name+"</br>");
+  // }
+  // self_atcks += "<br><input type='button' value='FIGHT' onclick='attack()'/></form>";
+  // document.getElementById("self_attacks").innerHTML = self_atcks;
 }
 
 function attack(){
