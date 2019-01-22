@@ -2,6 +2,11 @@
   display:none;
   text-align: center;
   border:black double 5px;
+  min-height: 400px;
+  padding:10px;
+}
+#user, #enemy{
+  margin:20px 0;
 }
 #screen ul{
   text-align: left;
@@ -15,6 +20,22 @@
   text-align:center;
   color:;
 }
+#ststus, #myMoney{
+  display:inline;
+}
 img{
   height:100px;
+}
+#enemy_image{
+  margin-left: 500px;
+}
+#myPokemons{
+  border:5px double black;
+  float:right;
+  padding:5px;
+}
+#myBag{
+    border:5px double black;
+    float:left;
+    padding:5px;
 }
