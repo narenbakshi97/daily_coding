@@ -17,6 +17,7 @@ function showMyPokemons(){
 
 function pokemonMain(id,index){
   if(!battle){
+    myAttacks(pokemons_caught[index]);
     my_pokemon = id+"";
     currentPokemonIndex = index;
     let choice = pokemons_caught[index].name[0].toUpperCase()+pokemons_caught[index].name.substring(1);
@@ -42,6 +43,7 @@ function pokemonMain(id,index){
 }
 
 function catchPokemon(){
+  document.getElementById("self_attacks").innerHTML = "";
   if(myBag[0].quantity > 0){
       statusUpdate("Trainer threw a Pokeball on wild "+ enemy_pokemon.name+", waiting...");
       myBag[0].quantity--;
