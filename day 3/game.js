@@ -1,5 +1,6 @@
 // intro
 var request = new XMLHttpRequest();
+var pokeballs_thrown = 0;
 var intro_music;
 var battleSound;
 var myMoney = 100;
@@ -20,19 +21,25 @@ var my_pokemon = 0;
 var enemy_pokemon;
 var enemy_hp;
 // flag variable to determine whose turn is this?
-var turn = "user";
+current_turn = turn[0];
 
 function resume_game(){
+  pokeballs_thrown = 0;
   enemy_current_lvl = 100;
   my_current_lvl = 100;
   battle = false;
+  current_turn = turn[0];
   battleSound.pause();
   document.getElementById("enemy").style.display = "none";
+  document.getElementById("self_health").innerHTML = null;
+  document.getElementById("self_hp").innerHTML = null;
   document.getElementById("self_attacks").innerHTML = null;
   document.getElementById("daily").play();
 }
 
 function start_game(){
+  pokeballs_thrown = 0;
+  setInterval(wildTurn, 1500);
   battle = false;
   document.getElementById("myMoney").innerHTML = "Money: "+myMoney;
   showBag();
@@ -90,6 +97,7 @@ function start_game(){
 // run
 var data;
 function run(){
+  pokeballs_thrown = 0;
   enemy_current_lvl = 100;
   my_current_lvl = 100;
   battle = true;
@@ -139,7 +147,7 @@ request.onload = function () {
  }
 }
 request.send();
-turn = "user";
+current_turn = turn[0];
 showMyAttacks();
 
 

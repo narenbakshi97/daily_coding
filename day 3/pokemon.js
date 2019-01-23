@@ -41,28 +41,49 @@ function pokemonMain(id,index){
     alert("You can't change a Pokemon in midst of a battle!");
   }
 }
-
+var turnsNumber = 0;
 function catchPokemon(){
-  document.getElementById("self_attacks").innerHTML = "";
-  if(myBag[0].quantity > 0){
-      statusUpdate("Trainer threw a Pokeball on wild "+ enemy_pokemon.name+", waiting...");
-      myBag[0].quantity--;
-      showBag();
-      enemy_pokemon.hp = enemy_hp;
-      if(my_lvls.max < enemy_pokemon.hp/10){
-        my_lvls.max = enemy_pokemon.hp/10;
-      }
-      else if(my_lvls.min > enemy_pokemon.hp/10){
-        my_lvls.min = enemy_pokemon.hp/10;
-      }
-      pokemons_caught.push(enemy_pokemon);
-      statusUpdate("Congratulations trainer! " + enemy_pokemon.name + " is caught!");
+  //document.getElementById("self_attacks").innerHTML = "";
+  if(current_turn == turn[0]){
+    current_turn = turn[1];
+    if(myBag[0].quantity > 0){
+        myBag[0].quantity--;
+        showBag();
+        statusUpdate("Trainer threw a Pokeball on wild "+ enemy_pokemon.name+", waiting...");
+        //a = ((3*HPmax - 2*HPcurrent)*ratemodified*bonusBall)/(3*HPmax)
+        let HPmax = enemy_hp;
+        let HPcurrent = (enemy_hp  * enemy_current_lvl)/100;
+        let ratemodified = (Math.random() * 255 + 1);
+        let bonusBall = 1;
 
-      showMyPokemons();
-      enemy_pokemon = null;
-      resume_game();
+        let a = ((3*HPmax - 2*HPcurrent)*ratemodified*bonusBall)/(3*HPmax);
+        console.log(a);
+        if(a > 100){
+          showBag();
+          enemy_pokemon.hp = enemy_hp;
+          if(my_lvls.max < enemy_pokemon.hp/10){
+            my_lvls.max = enemy_pokemon.hp/10;
+          }
+          else if(my_lvls.min > enemy_pokemon.hp/10){
+            my_lvls.min = enemy_pokemon.hp/10;
+          }
+          pokemons_caught.push(enemy_pokemon);
+          statusUpdate("Congratulations trainer! " + enemy_pokemon.name + " is caught!");
+
+          showMyPokemons();
+          enemy_pokemon = null;
+          resume_game();
+        }
+        else{
+          statusUpdate("You missed the Pokémon!");
+        }
+      }
+      else{
+        alert("You don't have Pokeball");
+      }
   }
   else{
-    alert("You don't have Pokeball");
+    statusUpdate("Wait for your turn.")
   }
+
 }

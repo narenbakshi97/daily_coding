@@ -14,7 +14,10 @@ var typeModifier = {
       bug:2,
       poison:1,
       ghost:1,
-      dragon:0.5
+      dragon:0.5,
+      steel: 2,
+      dark:1,
+      fairy:1
     },
     water:{
       fire:2,
@@ -31,7 +34,10 @@ var typeModifier = {
       bug:1,
       poison:1,
       ghost:1,
-      dragon:0.5
+      dragon:0.5,
+      steel: 1,
+      dark:1,
+      fairy:1
     },
     grass:{
       fire:0.5,
@@ -48,7 +54,10 @@ var typeModifier = {
       bug:0.5,
       poison:0.5,
       ghost:1,
-      dragon:0.5
+      dragon:0.5,
+      steel: 0.5,
+      dark:1,
+      fairy:1
     },
     electric:{
       fire:1,
@@ -65,7 +74,10 @@ var typeModifier = {
       bug:1,
       poison:1,
       ghost:1,
-      dragon:0.5
+      dragon:0.5,
+      steel: 1,
+      dark:1,
+      fairy:1
     },
     ice:{
       fire:1,
@@ -82,7 +94,10 @@ var typeModifier = {
       bug:1,
       poison:1,
       ghost:1,
-      dragon:2
+      dragon:2,
+      steel: 0.5,
+      dark:1,
+      fairy:1
     },
     psychic:{
       fire:1,
@@ -99,7 +114,10 @@ var typeModifier = {
       bug:1,
       poison:2,
       ghost:1,
-      dragon:1
+      dragon:1,
+      steel: 0.5,
+      dark:0.5,
+      fairy:1
     },
     normal:{
       fire:1,
@@ -116,7 +134,10 @@ var typeModifier = {
       bug:1,
       poison:1,
       ghost:0,
-      dragon:1
+      dragon:1,
+      steel: 0.5,
+      dark:1,
+      fairy:1
     },
     fighting:{
       fire:1,
@@ -133,7 +154,10 @@ var typeModifier = {
       bug:0.5,
       poison:0.5,
       ghost:0,
-      dragon:1
+      dragon:1,
+      steel: 2,
+      dark:2,
+      fairy:0.5
     },
     flying:{
       fire:1,
@@ -150,7 +174,10 @@ var typeModifier = {
       bug:2,
       poison:1,
       ghost:1,
-      dragon:1
+      dragon:1,
+      steel: 0.5,
+      dark:1,
+      fairy:1
     },
     ground:{
       fire:2,
@@ -167,7 +194,10 @@ var typeModifier = {
       bug:0.5,
       poison:2,
       ghost:1,
-      dragon:1
+      dragon:1,
+      steel: 2,
+      dark:1,
+      fairy:1
     },
     rock:{
       fire:2,
@@ -184,7 +214,10 @@ var typeModifier = {
       bug:2,
       poison:1,
       ghost:1,
-      dragon:1
+      dragon:1,
+      steel: 0.5,
+      dark:1,
+      fairy:1
     },
     bug:{
       fire:0.5,
@@ -201,7 +234,10 @@ var typeModifier = {
       bug:1,
       poison:2,
       ghost:1,
-      dragon:1
+      dragon:1,
+      steel: 0.5,
+      dark:2,
+      fairy:0.5
     },
     poison:{
       fire:1,
@@ -218,7 +254,10 @@ var typeModifier = {
       bug:2,
       poison:0.5,
       ghost:0.5,
-      dragon:1
+      dragon:1,
+      steel: 0.5,
+      dark:1,
+      fairy:2
     },
     ghost:{
       fire:1,
@@ -235,7 +274,10 @@ var typeModifier = {
       bug:1,
       poison:1,
       ghost:2,
-      dragon:1
+      dragon:1,
+      steel: 1,
+      dark:0.5,
+      fairy:1
     },
     dragon:{
       fire:1,
@@ -252,6 +294,69 @@ var typeModifier = {
       bug:1,
       poison:1,
       ghost:1,
-      dragon:1
+      dragon:1,
+      steel: 0.5,
+      dark:1,
+      fairy:0.5
+    },
+    steel:{
+      fire:0.5,
+      water:0.5,
+      grass:1,
+      electric:0.5,
+      ice:2,
+      psychic:1,
+      normal:1,
+      fighting:1,
+      flying:1,
+      ground:1,
+      rock:2,
+      bug:1,
+      poison:1,
+      ghost:1,
+      dragon:1,
+      steel: 0.5,
+      dark:1,
+      fairy:2
+    },
+    dark:{
+      fire:1,
+      water:1,
+      grass:1,
+      electric:1,
+      ice:1,
+      psychic:2,
+      normal:1,
+      fighting:0.5,
+      flying:1,
+      ground:1,
+      rock:1,
+      bug:1,
+      poison:1,
+      ghost:2,
+      dragon:1,
+      steel: 1,
+      dark:0.5,
+      fairy:0.5
+    },
+    fairy:{
+      fire:0.5,
+      water:1,
+      grass:1,
+      electric:1,
+      ice:1,
+      psychic:1,
+      normal:1,
+      fighting:2,
+      flying:1,
+      ground:1,
+      rock:1,
+      bug:1,
+      poison:0.5,
+      ghost:1,
+      dragon:2,
+      steel: 0.5,
+      dark:2,
+      fairy:1
     }
 };

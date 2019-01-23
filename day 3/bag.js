@@ -1,5 +1,5 @@
 var myBag = [];
-myBag.push({name:"pokeball",quantity:3,image:"items/pokeball.png"});
+myBag.push({name:"pokeball",quantity:300,image:"items/pokeball.png"});
 function showBag(){
   let bagContents = "<ol>";
   for(let i = 0; i < myBag.length; i++){
