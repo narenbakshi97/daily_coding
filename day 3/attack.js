@@ -116,6 +116,7 @@ function moveChoice(index){
       levelCheck(pokemons_caught[currentPokemonIndex].exp);
       statusUpdate(pokemons_caught[currentPokemonIndex].name + " got, "+ e + " experience points!");
       enemy_pokemon = null;
+      myMoney += 30;
       resume_game();
     }
   }
@@ -171,6 +172,9 @@ function wildTurn(){
       document.getElementById("self_health").innerHTML = "<strong>Health:"+ my_current_lvl +"/100</strong>";
       if(my_current_lvl <= 0){
         alert("You are defeated.");
+        if(myMoney/2 >= 0 ){
+          myMoney /= 2;
+        }
         resume_game();
       }
       current_turn = turn[0];
@@ -190,8 +194,4 @@ function calculateLvl(){
   let exp = Math.floor(Math.floor(Math.sqrt(A) * (A * A)) * B / Math.floor(Math.sqrt(C) * (C*C))) + 1;
   console.log(exp);
   return exp;
-}
-
-function calculateMoney(){
-
 }

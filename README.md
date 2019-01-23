@@ -10,3 +10,7 @@ Started making a simple Pokemon fighting game, similar to Pokemon Simulator usin
 
 ## 4. Date 22 Jan 2019
 Continued to work on the Pokemon game and added functionalities like catching a Pokemon, using API instead of hard coded data, Shopping pokeballs, etc. variables.
+
+## 5. Date 23 Jan 2019
+Game is almost finished, only thing which is pending is to evolve your pokemon and release functionality, will figure out later how to use the evolution chain  and etc. resources.
+["Heres the link to the game"](https://pokemonsimulator.000webhostapp.com/)

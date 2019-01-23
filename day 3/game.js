@@ -30,6 +30,7 @@ function resume_game(){
   battle = false;
   current_turn = turn[0];
   battleSound.pause();
+  document.getElementById("myMoney").innerHTML = "Money: "+myMoney;
   document.getElementById("enemy").style.display = "none";
   document.getElementById("self_health").innerHTML = null;
   document.getElementById("self_hp").innerHTML = null;
