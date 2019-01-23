@@ -25,7 +25,7 @@ function enemyAttacks(wild){
       requ.send();
     }
   }
-  console.log(enemyMoves);
+  //console.log(enemyMoves);
 }
 
 function myAttacks(pkmn){
@@ -49,7 +49,7 @@ function myAttacks(pkmn){
       requ.send();
     }
   }
-  console.log(myMoves);
+  //console.log(myMoves);
 }
 
 // moves = {name:, power:, type:, level: , url:}
@@ -71,7 +71,7 @@ function showMyAttacks(){
 function moveChoice(index){
   if(current_turn == "user"){
     let theMove = myMoves[index];
-    console.log(theMove);
+    //console.log(theMove);
     // A: attacker's Level
     let A = pokemons_caught[currentPokemonIndex].hp/10;
     // C: attack Power
@@ -99,10 +99,10 @@ function moveChoice(index){
     //(((((((2 * A / 5 + 2) * B * C) / D) / 50 + 2) * X) * Y / 10) * Z) / 255
     ans = (((((((2 * A / 5 + 2) * B * C) / D) / 50 + 2) * X) * Y / 10) * Z) / 255;
 
-    console.log(ans);
+    //console.log(ans);
     // let's actually damge that pokemon
     let damage = ans/enemy_hp * 100;
-    console.log(damage);
+    //console.log(damage);
     enemy_current_lvl -= damage;
     enemy_current_lvl = Math.floor(enemy_current_lvl);
     new Audio("sounds/Tackle.wav").play();
@@ -111,6 +111,10 @@ function moveChoice(index){
     current_turn = turn[1];
     if(enemy_current_lvl <= 0){
       alert("You won!");
+      let e = calculateLvl();
+      pokemons_caught[currentPokemonIndex].exp += e;
+      levelCheck(pokemons_caught[currentPokemonIndex].exp);
+      statusUpdate(pokemons_caught[currentPokemonIndex].name + " got, "+ e + " experience points!");
       enemy_pokemon = null;
       resume_game();
     }
@@ -124,12 +128,12 @@ function moveChoice(index){
 // for the enemy pokemonMain
 function wildTurn(){
   if(battle){
-    console.log("Yes it's battle time");
+    //console.log("Yes it's battle time");
     if(current_turn == "pc"){
-      console.log("Enemy's turn");
+      //console.log("Enemy's turn");
       let r = Math.floor(Math.random() * enemyMoves.length);
       statusUpdate("Wild "+ enemy_pokemon.name + " used, "+ enemyMoves[r].name+ " move.");
-      console.log(enemyMoves[r]);
+      //console.log(enemyMoves[r]);
       let theMove = enemyMoves[r];
       // A: attacker's Level
       let A = enemy_hp/10;
@@ -157,10 +161,10 @@ function wildTurn(){
       //((2A/5+2)*B*C)/D)/50)+2)*X)*Y/10)*Z)/255
       //(((((((2 * A / 5 + 2) * B * C) / D) / 50 + 2) * X) * Y / 10) * Z) / 255
       ans = (((((((2 * A / 5 + 2) * B * C) / D) / 50 + 2) * X) * Y / 10) * Z) / 255;
-      console.log(ans);
+      //console.log(ans);
       // let's actually damge that pokemon
       let damage = ans/pokemons_caught[currentPokemonIndex].hp * 100;
-      console.log(damage);
+      //console.log(damage);
       my_current_lvl -= damage;
       my_current_lvl = Math.floor(my_current_lvl);
       new Audio("sounds/Tackle.wav").play();
@@ -173,6 +177,21 @@ function wildTurn(){
     }
   }
   else{
-    console.log("Enemy waiting for battle");
+    //console.log("Enemy waiting for battle");
   }
+}
+
+function calculateLvl(){
+  let A = (enemy_hp/10) * 2 + 10;
+  let C = (enemy_hp/10 + pokemons_caught[currentPokemonIndex].hp/10 + 10);
+  let B = (pokemons_caught[currentPokemonIndex].base_experience * (enemy_hp/10)/5);
+
+  //floor( floor(√(A) * (A * A)) * B / floor(√(C) * (C * C))) + 1
+  let exp = Math.floor(Math.floor(Math.sqrt(A) * (A * A)) * B / Math.floor(Math.sqrt(C) * (C*C))) + 1;
+  console.log(exp);
+  return exp;
+}
+
+function calculateMoney(){
+
 }

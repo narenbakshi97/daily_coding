@@ -65,6 +65,7 @@ function start_game(){
   request.onload = function () {
     newEntry = JSON.parse(this.response);
     newEntry.hp = 50;
+    newEntry.exp = newEntry.base_experience;
     myAttacks(newEntry);
     pokemons_caught.push(newEntry);
     showMyPokemons();
@@ -97,6 +98,8 @@ function start_game(){
 // run
 var data;
 function run(){
+  showBag();
+  showMyPokemons();
   pokeballs_thrown = 0;
   enemy_current_lvl = 100;
   my_current_lvl = 100;
@@ -107,8 +110,16 @@ function run(){
   document.getElementById("daily").pause();
   battleSound.play();
   var random = Math.floor(Math.random() * 150) + 1;
-  console.log(random);
+  //console.log(random);
 //  console.log(pokemon[random-1]);
+
+
+if(my_lvls.max < pokemons_caught[currentPokemonIndex].hp/10){
+  my_lvls.max = pokemons_caught[currentPokemonIndex].hp/10;
+}
+else if(my_lvls.min > pokemons_caught[currentPokemonIndex].hp/10){
+  my_lvls.min = pokemons_caught[currentPokemonIndex].hp/10;
+}
 
 
   //**************************************************************************************************
@@ -132,7 +143,7 @@ request.onload = function () {
     }
     // loading sound of that wild pokemon
     var enemy_snd_file = data.name[0].toUpperCase().concat(data.name.substring(1));
-    console.log(enemy_snd_file);
+    //console.log(enemy_snd_file);
     var snd = new Audio("sounds/"+enemy_image_str+" - "+enemy_snd_file+".wav");
     snd.play();
     // show
