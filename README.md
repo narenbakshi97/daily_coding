@@ -14,3 +14,6 @@ Continued to work on the Pokemon game and added functionalities like catching a 
 ## 5. Date 23 Jan 2019
 Game is almost finished, only thing which is pending is to evolve your pokemon and release functionality, will figure out later how to use the evolution chain  and etc. resources.
 [Heres the link of the working code](https://pokemonsimulator.000webhostapp.com/)
+
+## 6. Date 24 Jan 2019
+Worked on a task organizer app on my private repository
