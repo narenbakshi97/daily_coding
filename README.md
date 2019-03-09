@@ -17,3 +17,9 @@ Game is almost finished, only thing which is pending is to evolve your pokemon a
 
 ## 6. Date 24 Jan 2019
 Worked on a task organizer app on my private repository
+
+# Starting Again......Now let's try our best to maintain those streaks, shall we?
+
+## 7. 9 Mar 2019
+Started, OpenCV Python Tutorial: Computer Vision With OpenCV In Python by Edureka and learned the basics
+[Here's the link](https://www.edureka.co/blog/python-opencv-tutorial/)
