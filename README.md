@@ -20,6 +20,10 @@ Worked on a task organizer app on my private repository
 
 # Starting Again......Now let's try our best to maintain those streaks, shall we?
 
-## 7. 9 Mar 2019
+## 7. Date 09 Mar 2019
 Started, OpenCV Python Tutorial: Computer Vision With OpenCV In Python by Edureka and learned the basics
 [Here's the link](https://www.edureka.co/blog/python-opencv-tutorial/)
+
+## 8. Date 13 Mar 2019
+Started Data Visualization Certification (300 hours)
+  [Website link](https://learn.freecodecamp.org/data-visualization/data-visualization-with-d3)
