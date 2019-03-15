@@ -28,7 +28,15 @@ function draw(){
   if(Weatherdata){
     var temp = Weatherdata.main.temp;
     var humid = Weatherdata.main.humidity;
-    ellipse(250,300,temp,temp);
-    ellipse(500,300,humid,humid)
+    fill("white");
+    textSize(40);
+    text(input.value(),width/2-40,100)
+    ellipse(250,300,temp*2,temp*2);
+    ellipse(500,300,humid*2,humid*2);
+    fill("red");
+    textSize(20);
+    text("Temperature " + temp + " C°",150,200);
+    fill("blue");
+    text("Humidity " + humid + "%" ,450,200);
   }
 }

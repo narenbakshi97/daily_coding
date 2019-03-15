@@ -67,7 +67,7 @@ for x,y,w,h in faces:
 factor = 1
 resized = cv2.resize(emma, (int(emma.shape[1]/factor),int(emma.shape[0]/factor)))
 cv2.imshow("Gray", resized)
-cv2.waitKey(200)
+cv2.waitKey(0)
 cv2.destroyAllWindows()
 
 ##########################################################
