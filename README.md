@@ -1,6 +1,6 @@
 # My Daily Coding
 
-## 10. Date 15 Mar 2019
+## 10. [Date 15 Mar 2019](/tree/master/day%2010)
 * Second module of Free Code Camp D3.js course is done
 * Learned Scikit-learn library from Edureka: (Link to the Youtube Video)[https://www.youtube.com/watch?v=bwZ3Qiuj3i8]
   * The tutorial teaches SVM, KNN and Logistic Regression using the Iris Dataset
