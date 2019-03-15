@@ -19,7 +19,7 @@ Started, OpenCV Python Tutorial: Computer Vision With OpenCV In Python by Edurek
 ![Face Recognition using CV2](https://i.imgur.com/OH1cS1z.jpg)
 
 # Starting Again......Now let's try our best to maintain those streaks, shall we?
-![I can butI won't](https://i.imgur.com/gRahCs0.jpg)
+![I can but I won't](https://i.imgur.com/gRahCs0.jpg)
 
 ## 6. Date 24 Jan 2019
 Worked on a task organizer app on my private repository
@@ -27,11 +27,11 @@ Worked on a task organizer app on my private repository
 ## 5. Date 23 Jan 2019
 Game is almost finished, only thing which is pending is to evolve your pokemon and release functionality, will figure out later how to use the evolution chain  and etc. resources.
 [Heres the link of the working code](https://pokemonsimulator.000webhostapp.com/)
-![Pokemon Simulator Output 2](https://i.imgur.com/IkBeShp.gifv)
+![Pokemon Simulator Output 2](https://i.imgur.com/IkBeShp.gif)
 
 ## 4. Date 22 Jan 2019
 Continued to work on the Pokemon game and added functionalities like catching a Pokemon, using API instead of hard coded data, Shopping pokeballs, etc. variables.
-![Pokemon Simulator Output 1](https://i.imgur.com/wXd8kk0.gifv)
+![Pokemon Simulator Output 1](https://i.imgur.com/wXd8kk0.gif)
 
 
 ## 3. Date: 21 Jan 2019
