@@ -1,10 +1,8 @@
 # My Daily Coding
 
 ## 10. [Date 15 Mar 2019](https://github.com/narenbakshi97/daily_coding/tree/master/day%2010)
-* Second module of Free Code Camp D3.js course is done
-* Learned Scikit-learn library from Edureka: (Link to the Youtube Video)[https://www.youtube.com/watch?v=bwZ3Qiuj3i8]
-  * The tutorial teaches SVM, KNN and Logistic Regression using the Iris Dataset
-  ![Iris Dataset](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/Machine+Learning+R/iris-machinelearning.png)
+Scikit-learn tutorial and D3 course by freecodecamp
+
 ## 9. Date 14 Mar 2019
 1 Module of D3.js Completed, and APIs and JSON module is 33% completed from the Free Code Camp course
 [Website link](https://learn.freecodecamp.org/data-visualization/data-visualization-with-d3)
@@ -14,9 +12,7 @@ Started Data Visualization Certification (300 hours)
 [Website link](https://learn.freecodecamp.org/data-visualization/data-visualization-with-d3)
 
 ## 7. [Date 09 Mar 2019](https://github.com/narenbakshi97/daily_coding/tree/master/day%207)
-Started, OpenCV Python Tutorial: Computer Vision With OpenCV In Python by Edureka and learned the basics
-[Here's the link](https://www.edureka.co/blog/python-opencv-tutorial/)
-![Face Recognition using CV2](https://i.imgur.com/OH1cS1z.jpg)
+OpenCV tutorial by Edureka
 
 # Starting Again......Now let's try our best to maintain those streaks, shall we?
 ![I can but I won't](https://i.imgur.com/gRahCs0.jpg)
