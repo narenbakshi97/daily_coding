@@ -4,4 +4,4 @@
 ![404 page](https://i.imgur.com/mHYg0bL.png) ✔
 
 #### Here's the output
-![Op](https://i.imgur.com/NHkkShZ.gifv)
+![Op](https://i.imgur.com/NHkkShZ.gif)
