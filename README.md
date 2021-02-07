@@ -1,6 +1,7 @@
 # My Daily Coding
 ## 1. Date 07 Feb 2021
-Starting my journey as a coder again and learning/practicing Java again from scratch  
+Starting my journey as a coder again and learning/practicing Java again from scratch.
+* We created a Helow World Program in Java  
 
 # [ARCHIVED] AS I WAS NO LONGER REGULAR ABOUT IT
 ## 11. [Date 24 Mar 2019](https://github.com/narenbakshi97/daily_coding/tree/master/day%2011)
